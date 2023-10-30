@@ -131,8 +131,8 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               margin: EdgeInsets.only(bottom: 20),
               child: NavigationDestination(
-                  icon: Icon(Icons.account_box, size: 32,color: Colors.grey), 
-                  selectedIcon: Icon(Icons.account_box, size: 32, color: Colors.red,),
+                  icon: Icon(Icons.account_circle_rounded, size: 32,color: Colors.grey), 
+                  selectedIcon: Icon(Icons.account_circle_rounded, size: 32, color: Colors.red,),
                   label: 'Account',
                 ),
             ),

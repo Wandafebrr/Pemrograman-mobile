@@ -241,10 +241,7 @@ class HomePage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                    color: Colors.grey, // Warna border abu-abu
-                    width: 0.5, // Lebar border
-                  ),
+                 
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -256,10 +253,10 @@ class HomePage extends StatelessWidget {
                         // Gambar 1 dan Teks 1
                         Column(
                           children: [
-                            Image.network(
-                              'https://cdn-icons-png.flaticon.com/512/6379/6379126.png',
-                              width: 30, // Lebar gambar
-                              height: 30, // Tinggi gambar
+                         Icon(
+                              Icons.monetization_on_outlined,
+                              color: Colors.black,
+                              size: 30,
                             ),
                             Text(
                               'Top Up',
@@ -273,10 +270,10 @@ class HomePage extends StatelessWidget {
                         // Gambar 2 dan Teks 2
                         Column(
                           children: [
-                            Image.network(
-                              'https://cdn-icons-png.flaticon.com/256/9236/9236032.png',
-                              width: 30, // Lebar gambar
-                              height: 32, // Tinggi gambar
+                             Icon(
+                              Icons.currency_exchange_outlined,
+                              color: Colors.black,
+                              size: 30,
                             ),
                             Text(
                               'Send Money',
@@ -289,10 +286,10 @@ class HomePage extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            Image.network(
-                              'https://cdn-icons-png.flaticon.com/512/3132/3132830.png',
-                              width: 32, // Lebar gambar
-                              height: 31, // Tinggi gambar
+                             Icon(
+                              Icons.airplane_ticket_outlined,
+                              color: Colors.black,
+                              size: 30,
                             ),
                             Text(
                               'Ticket Code',
@@ -305,10 +302,10 @@ class HomePage extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            Image.network(
-                              'https://cdn-icons-png.flaticon.com/512/274/274749.png',
-                              width: 28, // Lebar gambar
-                              height: 31, // Tinggi gambar
+                             Icon(
+                              Icons.widgets_outlined,
+                              color: Colors.black,
+                              size: 30,
                             ),
                             Text(
                               'See All',
@@ -341,8 +338,8 @@ class HomePage extends StatelessWidget {
                         Column(
                           children: [
                             Icon(
-                              Icons.star,
-                              color: Colors.blue,
+                              Icons.phone_android,
+                              color: Colors.indigo,
                               size: 30,
                             ),
                             Text(
@@ -357,8 +354,8 @@ class HomePage extends StatelessWidget {
                         Column(
                           children: [
                             Icon(
-                              Icons.favorite,
-                              color: Colors.red,
+                              Icons.electric_bolt,
+                              color: Colors.indigo,
                               size: 30,
                             ),
                             Text(
@@ -373,8 +370,8 @@ class HomePage extends StatelessWidget {
                         Column(
                           children: [
                             Icon(
-                              Icons.email,
-                              color: Colors.orange,
+                              Icons.health_and_safety,
+                              color: Colors.indigo,
                               size: 30,
                             ),
                             Text(
@@ -389,8 +386,8 @@ class HomePage extends StatelessWidget {
                         Column(
                           children: [
                             Icon(
-                              Icons.phone,
-                              color: Colors.green,
+                              Icons.gamepad_sharp,
+                              color: Colors.indigo,
                               size: 30,
                             ),
                             Text(
@@ -410,12 +407,12 @@ class HomePage extends StatelessWidget {
                         Column(
                           children: [
                             Icon(
-                              Icons.home,
-                              color: Colors.blue,
+                              Icons.tv_sharp,
+                              color: Colors.indigo,
                               size: 30,
                             ),
                             Text(
-                              'Cable TV',
+                              'Cable TV &\nInternet',
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 14,
@@ -426,8 +423,8 @@ class HomePage extends StatelessWidget {
                         Column(
                           children: [
                             Icon(
-                              Icons.work,
-                              color: Colors.red,
+                              Icons.water_drop,
+                              color: Colors.indigo,
                               size: 30,
                             ),
                             Text(
@@ -442,12 +439,12 @@ class HomePage extends StatelessWidget {
                         Column(
                           children: [
                             Icon(
-                              Icons.school,
-                              color: Colors.orange,
+                              Icons.credit_card,
+                              color: Colors.indigo,
                               size: 30,
                             ),
                             Text(
-                              'Ikon 7',
+                              'Kartu Uang \nElektronik',
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 14,
@@ -458,8 +455,8 @@ class HomePage extends StatelessWidget {
                         Column(
                           children: [
                             Icon(
-                              Icons.shopping_cart,
-                              color: Colors.green,
+                              Icons.more_horiz,
+                              color: Colors.indigo,
                               size: 30,
                             ),
                             Text(
@@ -473,7 +470,6 @@ class HomePage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 20,)
                   ],
                 ),
               ),
