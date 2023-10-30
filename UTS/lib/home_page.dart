@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:uts/navbar.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // final navbarInstance = Navbar();
+
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 245, 249, 252),
       body: ListView(
@@ -104,7 +104,7 @@ class HomePage extends StatelessWidget {
                       children: [
                         Container(
                           width: 140,
-                          height: 70,
+                          height: 75,
                           margin: EdgeInsets.only(top: 5, left: 20),
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -164,10 +164,11 @@ class HomePage extends StatelessWidget {
                               ),
                             ],
                           ),
+                          
                         ),
                         Container(
                           width: 140,
-                          height: 70,
+                          height: 75,
                           margin: EdgeInsets.only(top: 5, left: 20),
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -236,7 +237,7 @@ class HomePage extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(top: 5, left: 20, right: 20, bottom: 5),
                 width: MediaQuery.of(context).size.width,
-                height: 70, // Tinggi kontainer
+                height: 80, // Tinggi kontainer
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
@@ -326,7 +327,7 @@ class HomePage extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(top: 5, left: 20, right: 20, bottom: 5),
                 width: MediaQuery.of(context).size.width,
-                height: 150, // Tinggi kontainer
+                height: 200, // Tinggi kontainer
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
@@ -472,9 +473,11 @@ class HomePage extends StatelessWidget {
                         ),
                       ],
                     ),
+                    SizedBox(height: 20,)
                   ],
                 ),
-              )
+              ),
+              CarouselWithDots()
             ],
           ),
         ],
@@ -505,6 +508,222 @@ class CustomIcon extends StatelessWidget {
         width: width, // Gunakan properti width
         height: height, // Gunakan properti height
       ),
+    );
+  }
+}
+
+//carousel
+
+class MyCarouselSlider extends StatefulWidget {
+  @override
+  _MyCarouselSliderState createState() => _MyCarouselSliderState();
+}
+
+class _MyCarouselSliderState extends State<MyCarouselSlider> {
+  int _current = 0;
+  List<String> images = [
+    'image1.jpg',
+    'image2.jpg',
+    'image3.jpg',
+    // Add more image paths here
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        CarouselSlider(
+          items: images.map((image) {
+            return Builder(
+              builder: (BuildContext context) {
+                return Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: EdgeInsets.symmetric(horizontal: 5.0),
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                  ),
+                  child: Image.asset(
+                    'assets/$image', // Adjust this to your image paths
+                    fit: BoxFit.cover,
+                  ),
+                );
+              },
+            );
+          }).toList(),
+          options: CarouselOptions(
+            autoPlay: true,
+            enlargeCenterPage: true,
+            aspectRatio: 16 / 9,
+            viewportFraction: 0.8,
+            onPageChanged: (index, reason) {
+              setState(() {
+                _current = index;
+              });
+            },
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: images.map((image) {
+            int index = images.indexOf(image);
+            return Container(
+              width: 8.0,
+              height: 8.0,
+              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: _current == index ? Colors.blue : Colors.grey,
+              ),
+            );
+          }).toList(),
+        ),
+      ],
+    );
+  }
+}
+
+// class slider extends StatefulWidget {
+//    @override
+//   State<slider> createState() => _sliderState();
+// }
+
+// class _sliderState extends State<slider> {
+//   List itemColors = [Colors.green, Colors.purple, Colors.blue];
+//   int currentIndex=0;
+//   @override
+//   Widget build(BuildContext context) {
+//     return SafeArea(
+//       child: Scaffold(
+//         body: Center(
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: [
+//               SizedBox(
+//                 height: 200,
+//                 width: double.infinity,
+//                 child: CarouselSlider(
+//                   items: [
+//                   for(int i = 0; i< itemColors.length;i++)
+//                   Container(
+//                     alignment: Alignment.center,
+//                     margin: 
+//                     EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+//                     decoration: BoxDecoration(
+//                       color: itemColors[i],
+//                       borderRadius: BorderRadius.circular(20),
+//                       boxShadow:[
+//                         BoxShadow(
+//                           color: Colors.grey,
+//                           spreadRadius: 2,
+//                           blurRadius: 8,
+//                           offset: Offset(4, 4))
+//                       ]),
+//                       child: Text('Flutter',
+//                       style: TextStyle(color: Colors.white, fontSize: 15)
+//                       ),
+//                   )
+//                 ]
+//                 , options: CarouselOptions(
+//                   onPageChanged: (index, reason){
+//                     setState(() {
+//                       print(reason.toString());
+//                       currentIndex=index;
+//                     });
+//                   },
+//                   autoPlay: true),
+//                 )
+//                 ),
+//                 Row(
+//                   mainAxisAlignment: MainAxisAlignment.center, children: [
+//                     for(int i=0; i<itemColors.length;i++)
+//                     Container(
+//                       height: 13,
+//                       width: 13,
+//                       margin: EdgeInsets.all(5),
+//                       decoration: BoxDecoration(
+//                         color: currentIndex==i ? Colors.blue : Colors.white,
+//                         shape: BoxShape.circle,
+//                         boxShadow: [
+//                           BoxShadow(
+//                             color: Colors.grey,
+//                             spreadRadius: 1,
+//                             blurRadius: 3,
+//                             offset: Offset(2, 2)
+//                           )
+//                         ]
+//                       ),
+//                     )
+//                   ],
+//                 )
+//             ],
+//           ),
+//         )));
+//   }
+// }
+
+class CarouselWithDots extends StatefulWidget {
+  @override
+  _CarouselWithDotsState createState() => _CarouselWithDotsState();
+}
+
+class _CarouselWithDotsState extends State<CarouselWithDots> {
+  int _current = 0; // Indeks item aktif
+
+  List<String> imageUrls = [
+    'https://assets.klikindomaret.com/share/HERO_BNR_LINK-AJA-14-NOV%20(1).jpg',
+    'https://article.moinves.co.id/content/images/2021/07/image-1.jpg',
+    'https://assets.klikindomaret.com/share/HERO_BNR_LINK-AJA-14-NOV%20(1).jpg',
+    // Tambahkan lebih banyak URL gambar sesuai kebutuhan
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        CarouselSlider(
+          options: CarouselOptions(
+            height: 175,
+            autoPlay: true,
+            autoPlayInterval: Duration(seconds: 3),
+            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            autoPlayCurve: Curves.fastOutSlowIn,
+            onPageChanged: (index, reason) {
+              setState(() {
+                _current = index; // Perbarui indeks item aktif
+              });
+            },
+          ),
+          items: imageUrls.map((url) {
+            return Builder(
+              builder: (BuildContext context) {
+                return Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: EdgeInsets.symmetric(horizontal: 9.0, vertical: 15.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10), // Border radius 20
+                    child: Image.network(url, fit: BoxFit.cover),
+                  ),
+                );
+              },
+            );
+          }).toList(),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: imageUrls.map((url) {
+            int index = imageUrls.indexOf(url);
+            return Container(
+              width: 8.0,
+              height: 8.0,
+              margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 5.0),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: _current == index ? Colors.red : Colors.grey,
+              ),
+            );
+          }).toList(),
+        ),
+      ],
     );
   }
 }
