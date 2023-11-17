@@ -9,9 +9,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.pink,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),
@@ -68,14 +69,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     Column(
                       children: [
-                        Text("Suhu Kelvin", style: TextStyle(fontSize: 14)),
+                        Text("Suhu dalam Kelvin", style: TextStyle(fontSize: 14)),
                         SizedBox(height: 20),
                         Text("$kelvin", style: TextStyle(fontSize: 30)),
                       ],
                     ),
                     Column(
                       children: [
-                        Text("Suhu Reamur", style: TextStyle(fontSize: 14)),
+                        Text("Suhu dalam Reamur", style: TextStyle(fontSize: 14)),
                         SizedBox(height: 20),
                         Text("$reamur", style: TextStyle(fontSize: 30)),
                       ],
@@ -97,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 300, // Sesuaikan lebar sesuai keinginan
                       height: 50, // Sesuaikan tinggi sesuai keinginan
                       decoration: BoxDecoration(
-                        color: Colors.blue,
+                        color: Colors.pink,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       alignment: Alignment.center,
