@@ -95,11 +95,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       setState(() {});
                     },
                     child: Container(
-                      width: 300, // Sesuaikan lebar sesuai keinginan
+                      width: 200, // Sesuaikan lebar sesuai keinginan
                       height: 50, // Sesuaikan tinggi sesuai keinginan
                       decoration: BoxDecoration(
                         color: Colors.pink,
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(30),
                       ),
                       alignment: Alignment.center,
                       child: Text(
